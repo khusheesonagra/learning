@@ -1,2 +1,3 @@
 hello everyone ,how are you?
 HI from branch 'learning-git-khushee'
+adding new line form 'learning-git-khushee2' branch.
