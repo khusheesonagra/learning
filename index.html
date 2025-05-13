@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Minds - Educational Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="navigation">
+            <div class="nav-container">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L4 6V18L12 22L20 18V6L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 6V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 18V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 15L12 18L16 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Bright Minds</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#" id="home-link" class="active">Home</a>
+                    <a href="#" id="dashboard-link">Dashboard</a>
+                    <a href="#" id="classroom-link">Classroom</a>
+                    <a href="#" id="games-link">Games</a>
+                    <a href="#" id="profile-link">Profile</a>
+                </div>
+                <div class="auth-buttons">
+                    <button id="login-button" class="btn btn-outline">Login</button>
+                    <button id="signup-button" class="btn btn-primary">Sign Up</button>
+                    <div id="user-menu" class="hidden">
+                        <span id="username-display"></span>
+                        <button id="logout-button" class="btn btn-outline">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="main-content">
+            <!-- Landing Page (Default View) -->
+            <section id="landing-page" class="landing-page">
+                <div class="hero-section">
+                    <h1 class="gradient-text">Learning Made Fun for Every Mind</h1>
+                    <p>Interactive games and lessons designed to boost cognitive abilities</p>
+                    <button id="get-started-button" class="btn btn-primary btn-large">Get Started</button>
+                </div>
+                <div class="features-section">
+                    <div class="feature-card">
+                        <div class="feature-icon math-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Math Skills</h3>
+                        <p>Interactive exercises to improve numerical abilities and problem-solving</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon reading-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2V3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7V3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Reading Comprehension</h3>
+                        <p>Engaging stories and activities to enhance language understanding</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon memory-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 9a2 2 0 01-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 012 2v5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M18 9h2a2 2 0 012 2v11l-4-4h-6a2 2 0 01-2-2v-1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Memory Games</h3>
+                        <p>Fun challenges to improve memory retention and cognitive recall</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Page -->
+            <section id="dashboard-page" class="dashboard-page hidden">
+                <h1>Your Progress Dashboard</h1>
+                <div class="progress-overview">
+                    <div class="progress-card">
+                        <h3>Math Skills</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="math-progress" style="width: 0%"></div>
+                        </div>
+                        <p><span id="math-progress-text">0</span>% Complete</p>
+                    </div>
+                    <div class="progress-card">
+                        <h3>Reading Comprehension</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="reading-progress" style="width: 0%"></div>
+                        </div>
+                        <p><span id="reading-progress-text">0</span>% Complete</p>
+                    </div>
+                    <div class="progress-card">
+                        <h3>Memory Skills</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="memory-progress" style="width: 0%"></div>
+                        </div>
+                        <p><span id="memory-progress-text">0</span>% Complete</p>
+                    </div>
+                </div>
+                <div class="recent-activities">
+                    <h2>Recent Activities</h2>
+                    <div class="activity-list" id="activity-list">
+                        <p class="empty-state">No activities yet. Start playing games or taking lessons!</p>
+                    </div>
+                </div>
+                <div class="achievements-section">
+                    <h2>Your Achievements</h2>
+                    <div class="achievements-grid" id="achievements-grid">
+                        <div class="achievement locked">
+                            <div class="achievement-icon">🏆</div>
+                            <p>Complete 5 Games</p>
+                        </div>
+                        <div class="achievement locked">
+                            <div class="achievement-icon">⭐</div>
+                            <p>Reach Level 5 in any game</p>
+                        </div>
+                        <div class="achievement locked">
+                            <div class="achievement-icon">🎯</div>
+                            <p>Perfect Score in Memory Match</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Classroom Page -->
+            <section id="classroom-page" class="classroom-page hidden">
+                <h1>Learning Classroom</h1>
+                <div class="topics-grid">
+                    <div class="topic-card" data-topic="math">
+                        <div class="topic-icon math-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Math Skills</h3>
+                        <p>Basic arithmetic, patterns, and problem-solving</p>
+                    </div>
+                    <div class="topic-card" data-topic="reading">
+                        <div class="topic-icon reading-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2V3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7V3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Reading</h3>
+                        <p>Stories, vocabulary, and comprehension</p>
+                    </div>
+                    <div class="topic-card" data-topic="problem-solving">
+                        <div class="topic-icon puzzle-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.439 7.85c-.049.322.059.648.289.878l1.568 1.568c.47.47.706 1.087.706 1.704s-.235 1.233-.706 1.704l-1.611 1.611a.98.98 0 01-.837.276c-.47-.058-.822-.47-.763-.939.59-.481.02-.927-.397-1.275a2.94 2.94 0 00-1.968-.736c-1.091 0-2.003.511-2.512 1.41-.479.879-.51 1.783-.118 2.659.373.834 1.214 1.478 2.214 1.675v2.734a3.65 3.65 0 01-1.068-.796 4.623 4.623 0 01-1.071-1.723m-11.337 1.63c-.099-.097-.128-.233-.128-.385 0-.151.03-.287.128-.384l1.611-1.611c.228-.229.307-.555.248-.868s-.386-.558-.799-.587c-.294-.022-.57.082-.786.29L4.998 13.7a2.406 2.406 0 010 3.408l1.611 1.611a1.113 1.113 0 001.574 0m10.193-7.372l-.108-.18a5.5 5.5 0 01-.533-.934 3.67 3.67 0 01-.19-.706c0-.595.24-1.14.63-1.53.39-.39.91-.61 1.49-.63.16.01.32.03.47.07.46.12.87.37 1.18.7.29.32.51.71.62 1.17.03.13.05.27.06.41.01.56-.2 1.09-.59 1.48l-.19.19a.627.627 0 01-.88 0l-.55-.55a1.578 1.578 0 01-.46-1.11c0-.43.16-.86.46-1.11.91-.91-1.65-.9-1.79.56a3.5 3.5 0 00.97 2.46l.55.55c.24.24.24.64 0 .88l-.19.19m-5.57-5.49h3c.83 0 1.5-.67 1.5-1.5v-3c0-.83-.67-1.5-1.5-1.5h-3c-.83 0-1.5.67-1.5 1.5v3c0 .83.67 1.5 1.5 1.5zm-4.5 3h-3c-.83 0-1.5.67-1.5 1.5v3c0 .83.67 1.5 1.5 1.5h3c.83 0 1.5-.67 1.5-1.5v-3c0-.83-.67-1.5-1.5-1.5z" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <h3>Problem Solving</h3>
+                        <p>Puzzles, logic games, and critical thinking</p>
+                    </div>
+                    <div class="topic-card" data-topic="memory">
+                        <div class="topic-icon memory-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 9a2 2 0 01-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 012 2v5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M18 9h2a2 2 0 012 2v11l-4-4h-6a2 2 0 01-2-2v-1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Memory</h3>
+                        <p>Memory games and concentration exercises</p>
+                    </div>
+                </div>
+                <div id="lesson-content" class="lesson-content hidden">
+                    <button id="back-to-topics" class="btn btn-outline">← Back to Topics</button>
+                    <div id="lesson-container">
+                        <!-- Lesson content will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Games Page -->
+            <section id="games-page" class="games-page hidden">
+                <h1>Brain Games</h1>
+                <div class="games-grid">
+                    <div class="game-card" data-game="memory-match">
+                        <div class="game-icon memory-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2"/>
+                                <rect x="13" y="3" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2"/>
+                                <rect x="3" y="13" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2"/>
+                                <rect x="13" y="13" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Memory Match</h3>
+                        <p>Match pairs of cards to test your memory</p>
+                        <div class="game-stats">
+                            <span>High Score: <span id="memory-match-high-score">0</span></span>
+                            <span>Level: <span id="memory-match-level">1</span></span>
+                        </div>
+                        <button class="btn btn-primary play-game-btn" data-game="memory-match">Play</button>
+                    </div>
+                    <div class="game-card" data-game="pattern-master">
+                        <div class="game-icon pattern-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 2h4v4H2V2zm8 0h4v4h-4V2zm8 0h4v4h-4V2zM2 10h4v4H2v-4zm8 0h4v4h-4v-4zm8 0h4v4h-4v-4zM2 18h4v4H2v-4zm8 0h4v4h-4v-4zm8 0h4v4h-4v-4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Pattern Master</h3>
+                        <p>Complete the pattern sequences</p>
+                        <div class="game-stats">
+                            <span>High Score: <span id="pattern-master-high-score">0</span></span>
+                            <span>Level: <span id="pattern-master-level">1</span></span>
+                        </div>
+                        <button class="btn btn-primary play-game-btn" data-game="pattern-master">Play</button>
+                    </div>
+                    <div class="game-card" data-game="word-builder">
+                        <div class="game-icon word-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 7h18M3 11h18M3 15h18M3 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Word Builder</h3>
+                        <p>Create words from letter tiles</p>
+                        <div class="game-stats">
+                            <span>High Score: <span id="word-builder-high-score">0</span></span>
+                            <span>Level: <span id="word-builder-level">1</span></span>
+                        </div>
+                        <button class="btn btn-primary play-game-btn" data-game="word-builder">Play</button>
+                    </div>
+                </div>
+
+                <!-- Game Container -->
+                <div id="game-container" class="game-container hidden">
+                    <div class="game-header">
+                        <button id="back-to-games" class="btn btn-outline">← Back to Games</button>
+                        <div class="game-info">
+                            <h2 id="current-game-title">Game Title</h2>
+                            <div class="game-stats">
+                                <span>Score: <span id="current-game-score">0</span></span>
+                                <span>Level: <span id="current-game-level">1</span></span>
+                                <span>Time: <span id="current-game-timer">0</span>s</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="game-board"></div>
+                </div>
+            </section>
+
+            <!-- Profile Page -->
+            <section id="profile-page" class="profile-page hidden">
+                <h1>Your Profile</h1>
+                <div class="profile-container">
+                    <div class="profile-sidebar">
+                        <div class="profile-avatar">
+                            <div class="avatar-placeholder">
+                                <span id="avatar-initials">JD</span>
+                            </div>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <h4>Games Played</h4>
+                                <p id="games-played-stat">0</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>Total Points</h4>
+                                <p id="total-points-stat">0</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>Highest Level</h4>
+                                <p id="highest-level-stat">1</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-content">
+                        <div class="profile-form">
+                            <div class="form-group">
+                                <label for="profile-fullname">Full Name</label>
+                                <input type="text" id="profile-fullname" class="form-input" placeholder="Your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-username">Username</label>
+                                <input type="text" id="profile-username" class="form-input" placeholder="Your username">
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-email">Email</label>
+                                <input type="email" id="profile-email" class="form-input" placeholder="Your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-age">Age</label>
+                                <input type="number" id="profile-age" class="form-input" placeholder="Your age">
+                            </div>
+                            <button id="save-profile-button" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Login Modal -->
+        <div id="login-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Login to Bright Minds</h2>
+                    <button class="close-modal-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="login-username">Username</label>
+                            <input type="text" id="login-username" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" class="form-input" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </form>
+                    <p class="text-center">Don't have an account? <a href="#" id="switch-to-signup">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signup Modal -->
+        <div id="signup-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Create an Account</h2>
+                    <button class="close-modal-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="signup-form">
+                        <div class="form-group">
+                            <label for="signup-fullname">Full Name</label>
+                            <input type="text" id="signup-fullname" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-username">Username</label>
+                            <input type="text" id="signup-username" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-email">Email</label>
+                            <input type="email" id="signup-email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <input type="password" id="signup-password" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-age">Age</label>
+                            <input type="number" id="signup-age" class="form-input" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                    </form>
+                    <p class="text-center">Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Verification Modal -->
+        <div id="verification-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Code Verification</h2>
+                    <button class="close-modal-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="verification-form">
+                        <div class="form-group">
+                            <label for="verification-code">Verification Code</label>
+                            <input type="text" id="verification-code" class="form-input" placeholder="Enter 6-digit code" maxlength="6" required>
+                        </div>
+                        <div class="verification-code-display">
+                            <p>Your verification code is:</p>
+                            <div class="code-box" id="code-display"></div>
+                        </div>
+                        <div class="verification-timer">
+                            <p>Code expires in: <span id="countdown">60</span>s</p>
+                        </div>
+                        <button type="button" id="resend-code-btn" class="btn btn-outline btn-block">Resend Code</button>
+                        <button type="submit" id="verify-code-btn" class="btn btn-primary btn-block">Verify Code</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Container -->
+        <div class="toast-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
