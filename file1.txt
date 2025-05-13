@@ -1,3 +1,5 @@
-hello everyone ,how are you?
+hello everyone ,how are you? changing in this line 
 HI from branch 'learning-git-khushee'
-adding new line form 'learning-git-khushee2' branch.
+adding this line to review in my first PR.
+HI, this is my first PR.
+new line form 'learning-git-khushee2' branch.
